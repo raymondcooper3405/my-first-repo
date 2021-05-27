@@ -21,7 +21,6 @@ jobs:
           sudo apt install qbittorrent-nox
           wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
           sudo dpkg -i cloudflared-stable-linux-amd64.deb
-          timeout 5s qbittorrent-nox
-          rm /home/runner/.config/qBittorrent/qBittorrent.conf
+          mkdir -p /home/runner/.config/qBittorrent/
           sudo cp qBittorrent.conf /home/runner/.config/qBittorrent
           timeout 2m qbittorrent-nox & timeout 2m cloudflared tunnel --url localhost:8080 
