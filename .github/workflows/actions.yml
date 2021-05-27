@@ -23,11 +23,6 @@ jobs:
           sudo dpkg -i cloudflared-stable-linux-amd64.deb
           mkdir -p /home/runner/.config/qBittorrent/
           sudo cp qBittorrent.conf /home/runner/.config/qBittorrent
-          cd ~/
-          mkdir .cloudflared
-          cd .cloudflared
-          cat << EOF >> cert.pem
-          ${{ secrets.CF_CERT }}
-          EOF
+          npm install -g localtunnel
           cd ..
-          qbittorrent-nox & cloudflared tunnel --url localhost:8080 --hostname ${{ secrets.DOMAIN }}
+          qbittorrent-nox & lt --port 8080 --subdomain furystreamqbit
