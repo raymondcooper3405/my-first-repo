@@ -19,4 +19,4 @@ jobs:
         run: |
           sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
           sudo apt install qbittorrent-nox
-          sudo cat /home/qbittorrent/.config/qBittorrent/qBittorrent.conf
+          sudo cat /home/runner/.config/qBittorrent/qBittorrent.conf
