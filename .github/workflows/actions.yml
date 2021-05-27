@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
           sudo apt install qbittorrent-nox
-          sudo cat /root/.config/qBittorrent/qBittorrent.conf
+          sudo cat /home/root/.config/qBittorrent/qBittorrent.conf
           #wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
           #sudo dpkg -i cloudflared-stable-linux-amd64.deb
           #mkdir -p ~/.config/qBittorrent/
