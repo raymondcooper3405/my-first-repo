@@ -24,3 +24,4 @@ jobs:
           mkdir -p /home/runner/.config/qBittorrent/
           sudo cp qBittorrent.conf /home/runner/.config/qBittorrent
           timeout 2m qbittorrent-nox & timeout 2m cloudflared tunnel --url localhost:8080 
+          sudo cat /home/runner/.config/qBittorrent/qBittorrent.conf
