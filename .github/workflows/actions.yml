@@ -21,6 +21,6 @@ jobs:
           sudo apt install qbittorrent-nox
           mkdir -p /home/runner/.config/qBittorrent/
           sudo cp qBittorrent.conf /home/runner/.config/qBittorrent
-          npm install -g localtunnel
+          sudo npm install -g localtunnel
           cd ..
           qbittorrent-nox & lt --port 8080 --subdomain furystreamqbit
