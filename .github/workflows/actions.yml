@@ -19,8 +19,6 @@ jobs:
         run: |
           sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
           sudo apt install qbittorrent-nox
-          wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
-          sudo dpkg -i cloudflared-stable-linux-amd64.deb
           mkdir -p /home/runner/.config/qBittorrent/
           sudo cp qBittorrent.conf /home/runner/.config/qBittorrent
           npm install -g localtunnel
