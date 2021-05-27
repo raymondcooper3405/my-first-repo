@@ -23,5 +23,11 @@ jobs:
           sudo dpkg -i cloudflared-stable-linux-amd64.deb
           mkdir -p /home/runner/.config/qBittorrent/
           sudo cp qBittorrent.conf /home/runner/.config/qBittorrent
-          timeout 2m qbittorrent-nox & timeout 2m cloudflared tunnel --url localhost:8080 
-          sudo cat /home/runner/.config/qBittorrent/qBittorrent.conf
+          cd ~/
+          mkdir .cloudflared
+          cd .cloudflared
+          cat << EOF >> cert.pem
+          ${{ secrets.CF_CERT }}
+          EOF
+          cd ..
+          qbittorrent-nox & cloudflared tunnel --url localhost:8080 --hostname ${{ secrets.DOMAIN }}
