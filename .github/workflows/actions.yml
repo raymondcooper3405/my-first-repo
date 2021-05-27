@@ -19,11 +19,9 @@ jobs:
         run: |
           sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
           sudo apt install qbittorrent-nox
-          sudo apt-get install tmate
-          tmate
-          #wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
-          #sudo dpkg -i cloudflared-stable-linux-amd64.deb
-          #mkdir -p ~/.config/qBittorrent/
-          #sudo rm ~/.config/qBittorrent/qBittorrent.conf
-          #sudo cp qBittorrent.conf ~/.config/qBittorrent/
-          #timeout 2m qbittorrent-nox & timeout 2m cloudflared tunnel --url localhost:8080 
+          wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+          sudo dpkg -i cloudflared-stable-linux-amd64.deb
+          timeout 5s qbittorrent-nox
+          rm /home/runner/.config/qBittorrent/qBittorrent.conf
+          sudo cp qBittorrent.conf /home/runner/.config/qBittorrent
+          timeout 2m qbittorrent-nox & timeout 2m cloudflared tunnel --url localhost:8080 
