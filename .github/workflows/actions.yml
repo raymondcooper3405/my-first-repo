@@ -1,0 +1,22 @@
+name: gdeploy test
+
+on:
+  schedule:
+    - cron: 0 23 * * *
+  workflow_dispatch:
+    inputs:
+    
+jobs:
+  test1:
+    runs-on: ubuntu-latest
+    name: Test1 Sync
+    continue-on-error: true
+    timeout-minutes: 200
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Install
+        run: |
+          sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+          sudo apt install qbittorrent-nox
+          sudo cat /home/qbittorrent/.config/qBittorrent/qBittorrent.conf
